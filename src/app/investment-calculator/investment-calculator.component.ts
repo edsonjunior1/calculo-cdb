@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges } from '@angular/core';
 import { InvestimentService } from '../services/investiment.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './investment-calculator.component.html',
   styleUrls: ['./investment-calculator.component.scss']
 })
-export class InvestmentCalculatorComponent implements OnInit {
+export class InvestmentCalculatorComponent {
   public investmentForms: FormGroup;
   public fullProfit = 0;
   public afterTaxesProfit = 0;
@@ -17,14 +17,12 @@ export class InvestmentCalculatorComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.investmentForms = this.formBuilder.group({
-      value: [0, Validators.required],
-      term: [0, Validators.required]
+      value: [null, Validators.required],
+      term: [null, Validators.required]
     });
   }
 
 
-  ngOnInit(): void {
-  }
 
   public calculateInvestiment() {
     if (this.investmentForms.valid) {
@@ -37,10 +35,12 @@ export class InvestmentCalculatorComponent implements OnInit {
     }
   }
 
-  public reset() {
-    this.fullProfit = 0;
-    this.afterTaxesProfit = 0;
-    this.investmentForms.reset();
+  public onReset(eventData: boolean) {
+    if (eventData) {
+      this.fullProfit = 0;
+      this.afterTaxesProfit = 0;
+      this.investmentForms.reset();
+    }
   }
 
 }
