@@ -1,0 +1,29 @@
+<section class="container mt-5" *ngIf="!fullProfit && !afterTaxesProfit">
+  <h2 class="d-flex justify-content-center">Calculadora de Investimento</h2>
+  <form [formGroup]="investmentForms">
+    <div class="form-group mt-2">
+      <label for="value">Valor Monetário:</label>
+      <input class="form-control" type="text" onlyPositiveInteger id="value" name="value" formControlName="value" required>
+    </div>
+    <div class="form-group mt-3">
+      <label for="term">Prazo em meses:</label>
+      <input class="form-control" type="text" onlyPositiveInteger id="term" name="term" formControlName="term" required>
+    </div>
+    <button class="btn btn-primary mt-3" [disabled]="investmentForms.invalid || investmentForms.pristine" type="button"
+      (click)="calculateInvestiment()">
+      Calcular
+    </button>
+  </form>
+</section>
+
+
+<ng-container *ngIf="fullProfit && afterTaxesProfit">
+  <div class="container mt-5">
+    <h3>Resultados:</h3>
+    <p>Resultado Bruto: {{ fullProfit | currency: 'BRL' }}</p>
+    <p>Resultado Líquido: {{ afterTaxesProfit | currency: 'BRL' }}</p>
+    <button class="btn btn-primary mt-3" (click)="reset()">
+      Voltar para simulação
+    </button>
+  </div>
+</ng-container>
