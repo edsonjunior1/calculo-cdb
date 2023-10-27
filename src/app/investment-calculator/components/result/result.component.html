@@ -1,0 +1,8 @@
+<div class="container mt-5">
+  <h3>Resultados:</h3>
+  <p>Resultado Bruto: {{ grossProfit | currency: 'BRL' }}</p>
+  <p>Resultado Líquido: {{ netProfit | currency: 'BRL' }}</p>
+  <button class="btn btn-primary mt-3" (click)="reset()">
+    Voltar para simulação
+  </button>
+</div>

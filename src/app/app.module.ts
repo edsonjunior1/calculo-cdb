@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InvestmentCalculatorComponent } from './investment-calculator/investment-calculator.component';
 import { B3OnlyIntegerDirective } from './utils/integer-input.directive';
+import { ResultComponent } from './investment-calculator/components/result/result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InvestmentCalculatorComponent,
-    B3OnlyIntegerDirective
+    B3OnlyIntegerDirective,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
