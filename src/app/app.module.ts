@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InvestmentCalculatorComponent } from './investment-calculator/investment-calculator.component';
-import { B3OnlyIntegerDirective } from './utils/integer-input.directive';
+import { B3OnlyIntegerDirective } from './utils/input-restriction.directive';
 import { ResultComponent } from './investment-calculator/components/result/result.component';
 
 @NgModule({
