@@ -1,4 +1,4 @@
-<section class="container mt-5" *ngIf="!fullProfit && !afterTaxesProfit">
+<section class="container mt-5" *ngIf="!finalValue && !afterTaxesProfit">
   <h2 class="d-flex justify-content-center">Calculadora de Investimento</h2>
   <form [formGroup]="investmentForms">
     <div class="form-group mt-2">
@@ -17,7 +17,7 @@
 </section>
 
 
-<ng-container *ngIf="fullProfit && afterTaxesProfit">
-  <app-result [grossProfit]="fullProfit" [netProfit]="afterTaxesProfit" (resetEvent)="onReset($event)">
+<ng-container *ngIf="finalValue && afterTaxesProfit">
+  <app-result [grossProfit]="finalValue" [netProfit]="afterTaxesProfit" (resetEvent)="onReset($event)">
   </app-result>
 </ng-container>

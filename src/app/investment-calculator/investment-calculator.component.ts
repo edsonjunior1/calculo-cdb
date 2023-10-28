@@ -1,5 +1,5 @@
-import { Component, OnChanges } from '@angular/core';
-import { InvestimentService } from '../services/investiment.service';
+import { Component } from '@angular/core';
+import { InvestmentService } from '../services/investiment.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -9,11 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InvestmentCalculatorComponent {
   public investmentForms: FormGroup;
-  public fullProfit = 0;
+  public finalValue = 0;
   public afterTaxesProfit = 0;
 
   constructor(
-    private investmentService: InvestimentService,
+    private investmentService: InvestmentService,
     private formBuilder: FormBuilder
   ) {
     this.investmentForms = this.formBuilder.group({
@@ -29,15 +29,15 @@ export class InvestmentCalculatorComponent {
       const value = this.investmentForms.get('value')?.value;
       const term = this.investmentForms.get('term')?.value;
 
-      const { grossProfit, netProfit } = this.investmentService.investimentsCalculator(value, term);
-      this.fullProfit = grossProfit;
+      const { grossProfit, netProfit } = this.investmentService.investmentCalculator(value, term);
+      this.finalValue = grossProfit;
       this.afterTaxesProfit = netProfit;
     }
   }
 
   public onReset(eventData: boolean) {
     if (eventData) {
-      this.fullProfit = 0;
+      this.finalValue = 0;
       this.afterTaxesProfit = 0;
       this.investmentForms.reset();
     }
