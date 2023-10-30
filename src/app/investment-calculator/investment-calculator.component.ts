@@ -17,8 +17,8 @@ export class InvestmentCalculatorComponent {
     private formBuilder: FormBuilder
   ) {
     this.investmentForms = this.formBuilder.group({
-      value: [null, Validators.required],
-      term: [null, Validators.required]
+      value: [0, Validators.required],
+      term: [0, Validators.required]
     });
   }
 

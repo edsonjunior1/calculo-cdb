@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { InvestimentService } from './investiment.service';
+import { InvestmentService } from './investiment.service';
 
-describe('InvestimentService', () => {
-  let service: InvestimentService;
+describe('InvestmentService', () => {
+  let service: InvestmentService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(InvestimentService);
+    service = TestBed.inject(InvestmentService);
   });
 
   it('should be created', () => {
@@ -17,7 +17,7 @@ describe('InvestimentService', () => {
     const value = 0;
     const terms = 12;
 
-    expect(() => service.investimentsCalculator(value, terms)).toThrowError(
+    expect(() => service.investmentCalculator(value, terms)).toThrowError(
       'O valor e o prazo devem ser positivos, com o prazo maior que 1 mês.'
     );
   });
@@ -26,7 +26,7 @@ describe('InvestimentService', () => {
     const value = 1000;
     const terms = 1;
 
-    expect(() => service.investimentsCalculator(value, terms)).toThrowError(
+    expect(() => service.investmentCalculator(value, terms)).toThrowError(
       'O valor e o prazo devem ser positivos, com o prazo maior que 1 mês.'
     );
   });
@@ -37,7 +37,7 @@ describe('InvestimentService', () => {
     const expectedGrossValue1 = 11.230820949653051;
     const expectedNetValue1 = 8.98465675972244;
 
-    const result1 = service.investimentsCalculator(value1, terms1);
+    const result1 = service.investmentCalculator(value1, terms1);
 
     expect(result1.grossProfit).toBe(expectedGrossValue1);
     expect(result1.netProfit).toBe(expectedNetValue1);
@@ -48,7 +48,7 @@ describe('InvestimentService', () => {
     const expectedGrossValue2 = 1019.5344783999999;
     const expectedNetValue2 = 866.6043066399999;
 
-    const result2 = service.investimentsCalculator(value2, terms2);
+    const result2 = service.investmentCalculator(value2, terms2);
 
     expect(result2.grossProfit).toBe(expectedGrossValue2);
     expect(result2.netProfit).toBe(expectedNetValue2);
