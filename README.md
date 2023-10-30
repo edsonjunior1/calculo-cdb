@@ -1,27 +1,26 @@
 # CalculoCdb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.8.
+This project aims to return the gross and net value of an amount (investment) entered by the user based on the rules:
+
+The CDB calculation formula:
+FinalValue = InitalValue x [1 +(CDI * BasicTax)]
+Note: The formula only calculates the value of one month, the income from each month must be used to calculate the following months.
+
+Consider the fixed values below: 
+i. Basic Tax - 108%
+ii. CDI - 0.09%
+
+For tax calculation:
+i. Up to 06 months: 22,5%
+ii. Up to 12 months: 20%
+iii. Up to 24 months: 17,5%
+iv. Over 24 months: 15%
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng serve` or `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` or `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
